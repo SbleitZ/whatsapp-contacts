@@ -9,6 +9,7 @@ Copiar el codigo de la versión que quieras, y los resultados saldran por ese mi
 ## Versiones
 - v1 - Obtiene solo nombre, fecha y mensaje
 - v2 - Obtiene los mismos datos que v1 y además imagenes.
+- v3 - Obtiene los mismos resultados que v2, solo que encriptados.
 
 ### Web
 Puedes usar el index.html para ver los resultados de mejor manera.
