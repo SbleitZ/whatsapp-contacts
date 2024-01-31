@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhatsApp</title>
+  <style>
+    body{
+      color:#fff;
+      background-color: #0c1317;
+      height: 100vh;
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <form class="form">
+      <input type="text" class="input">
+      <button>Mostrar</button>
+      <button onclick="borrar()">Borrar</button>
+    </form>
+  </div>
+  <div class="contacts"></div>
+  <ul class="chats" style="padding: 0; margin: 0; list-style: none;"></ul>
+</body>
+  <script>
+    const ul = document.querySelector(".chats");
+    const form = document.querySelector(".form");
+    const contacts = document.querySelector(".contacts")
+    form.addEventListener("submit",(event)=>{
+      event.preventDefault();
+      const w = document.querySelector(".input").value;
+      if(!w){
+        contacts.textContent = "Introduce un texto";
+        return;
+      }
+      const values = w.split("SBLEITRULES");
+      contacts.textContent = values.length +" contactos cargados."
+      values.forEach((value)=> {
+        const data = value.split(",")
+        const li = document.createElement("li");
+        const div = document.createElement("div");
+        div.innerHTML = `<div style="background-color: #111b21; display: flex; gap: 1rem;">
+        <img style="border-radius: 100%;" src="${data[3]}" alt="No hay imagen" width="50" height="50">
+        <div style="flex-grow: 1; align-self: center;">
+          <span>${data[0]}</span>
+          <div style="color: rgb(115 115 115);">
+            <span>${data[2]}</span>
+          </div>
+        </div>
+        <div style="align-self: center;">
+          ${data[1]}
+        </div>
+      </div>`
+        
+        li.appendChild(div);
+        ul.appendChild(li);
+      })
+      console.log(values)
+    })
+    function borrar(){
+      const ul = document.querySelector(".chats");
+      const w = document.querySelector(".input");
+      const contacts = document.querySelector(".contacts");
+      contacts.textContent = "";
+      w.value = "";
+      ul.innerHTML = `<ul class="chats" style="padding: 0; margin: 0; list-style: none;"></ul>`;
+    }
+  </script>
+</html>
