@@ -17,6 +17,10 @@
   <div>
     <form class="form">
       <input type="text" class="input">
+      <select name="versiones">
+        <option value="v2">v2</option>
+        <option value="v3">v3</option>
+      </select>
       <button>Mostrar</button>
       <button onclick="borrar()">Borrar</button>
     </form>
@@ -30,7 +34,11 @@
     const contacts = document.querySelector(".contacts")
     form.addEventListener("submit",(event)=>{
       event.preventDefault();
-      const w = document.querySelector(".input").value;
+      let w = document.querySelector(".input").value;
+      const version = document.querySelector("[name='versiones']").value;
+      if(version == "v3"){
+        w = decodeURIComponent(atob(w));
+      }
       if(!w){
         contacts.textContent = "Introduce un texto";
         return;
