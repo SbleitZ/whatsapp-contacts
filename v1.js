@@ -1,6 +1,7 @@
 (function(){
   let users = [];
-  let tiempo = 500
+  let tiempo = 500;
+  let scrollI = 100;
   const h = document.querySelector('#pane-side');
   if(!h){
     console.error("La pagina no ha cargado completamente, por favor espera")
@@ -15,7 +16,7 @@ async function mover(){
   }
   const nw = Array.from(w);
   const maxScroll = h.scrollHeight -h.clientHeight;
-  for(let i = 0; h.scrollTop <  maxScroll-10;i+=100){
+  for(let i = 0; h.scrollTop <  maxScroll-10;i+=scrollI){
     h.scrollTop += i;
     users.push(nw.map(v => {
       const title = v.querySelector("._8nE1Y .y_sn4 span").textContent.trim();
