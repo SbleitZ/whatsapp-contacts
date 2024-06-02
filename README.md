@@ -1,4 +1,4 @@
-# WhatsApp contacts
+# WhatsApp contacts (deprecated)
 Codigo para obtener los contactos de tu whatsapp web
 ## Utilización
 La idea es solo con fines educativos para mi como estudiante.
